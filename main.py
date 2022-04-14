@@ -11,22 +11,32 @@ with open(chemin,"r") as f :
 
 print("La liste est ==>\n",liste_course)
 menu = """ 
-1-Ajouter une course 
+1-Afficher la liste de course 
 
-2-Suprrimer une course  
+2-Ajouter une course 
 
-3-Modifier une course  
+3-Suprrimer une course  
 
-4-Supprimer Toute la liste de course 
+4-Modifier une course  
 
-5-Quitter:
+5-Supprimer Toute la liste de course 
+
+6-Quitter:
 """
-liste_choix = ['1','2','3','4' ,'5']
+liste_choix = ['1','2','3','4' ,'5','6']
 
 while True :
     choix = input(menu)
-    if choix in liste_choix :
+    if choix in liste_choix:
+
         if choix == '1':
+
+          with open(chemin,"r") as f:
+                liste_course = json.load(f)
+
+          print("La liste est ==>\n:", liste_course)
+
+        elif choix == '2':
             ajout_course = input("Veuillez saisir la liste à ajouter :")
 
             while len(ajout_course) < 10 :
@@ -46,11 +56,11 @@ while True :
                 json.dump(liste_course,f,indent=3)
 
             print("Ajout de course reussi")
-            break
+
 
         # Utlisation de la fonction open pour supprimer un element a l'interieur de mfichier.json
 
-        elif choix == '2':
+        elif choix == '3':
 
             with open(chemin, "r") as f:
 
@@ -69,9 +79,9 @@ while True :
 
             print("Course supprimer avec success !!!")
 
-            break
 
-        elif choix == '3' :
+
+        elif choix == '4' :
             with open(chemin, "r") as f:
 
                 liste_course = json.load(f)
@@ -100,8 +110,8 @@ while True :
 
             print("modification avec success !!!")
 
-            break
-        elif choix == '4' :
+
+        elif choix == '5' :
 
             with open(chemin, "r") as f:
 
@@ -115,14 +125,14 @@ while True :
 
             print('La liste a ete supprime avec succes ')
 
-            break
-        elif choix == '5' :
+
+        elif choix == '6' :
             print('Au revoir Bye Bye ')
             break
         else :
             print('Choix non valide ')
             break
-print("La liste est ==>\n:",liste_course)
+
 
 
 
