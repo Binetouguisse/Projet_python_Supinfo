@@ -15,11 +15,13 @@ menu = """
 
 2-Suprrimer une course  
 
-3-Modifier une course 
+3-Modifier une course  
 
-4-Quitter:
+4-Supprimer Toute la liste de course 
+
+5-Quitter:
 """
-liste_choix = ['1','2','3','4']
+liste_choix = ['1','2','3','4' ,'5']
 
 while True :
     choix = input(menu)
@@ -92,7 +94,18 @@ while True :
             print("modification avec success !!!")
 
             break
-
+        elif choix == '4' :
+            with open(chemin, "r") as f:
+                liste_course = json.load(f)
+                liste_course.clear()
+                print('La liste a ete supprime avec succes ')
+                break
+        elif choix == '5' :
+            print('Au revoir Bye Bye ')
+            break
+        else :
+            print('Choix non valide ')
+            break
 print("La liste est ==>\n:",liste_course)
 
 
