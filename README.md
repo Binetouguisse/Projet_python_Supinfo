@@ -1,4 +1,4 @@
-Applicatipon de Gestion des Courses .
+Applicatipon de Gestion des Courses  en utlisant les fichiers pour chaque operation.
 En utilisant CRUD : 
 -Ajoute une Course .
 -Lire une Course .
