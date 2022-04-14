@@ -72,6 +72,9 @@ while True :
             break
 
         elif choix == '3' :
+            with open(chemin, "r") as f:
+
+                liste_course = json.load(f)
 
             replace_course = input("Veuillez saisir la course à modifier svp!!!\n :")
 
@@ -91,15 +94,28 @@ while True :
 
             liste_course[x] = replace_course_2
 
+            with open(chemin, "w") as f:
+
+                json.dump(liste_course, f, indent=3)
+
             print("modification avec success !!!")
 
             break
         elif choix == '4' :
+
             with open(chemin, "r") as f:
+
                 liste_course = json.load(f)
-                liste_course.clear()
-                print('La liste a ete supprime avec succes ')
-                break
+
+            liste_course.clear()
+
+            with open (chemin , "w") as f :
+
+                json.dump(liste_course , f , indent=3)
+
+            print('La liste a ete supprime avec succes ')
+
+            break
         elif choix == '5' :
             print('Au revoir Bye Bye ')
             break
